@@ -10,7 +10,6 @@ type Config struct {
 	Token   string
 	Channel string
 	Timeout int64
-	Spider  Spider
 }
 
 type Spider struct {
