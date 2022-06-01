@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Bot NEWS
+After=network.target
+
+[Service]
+RemainAfterExit=true
+User=root
+ExecStart=/usr/local/bin/MY_PROJECT/main --tk=TOKEN_TELEGRAM_BOT --id=ID_TELEGRAM_GROUP
+WorkingDirectory=/usr/local/bin/MY_PROJECT
+Type=simple
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
