@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"log"
-	"os"
 
 	"news/internal/spider"
 )
@@ -21,7 +20,6 @@ func main() {
 
 	if len(params.Token) == 0 && len(params.Channel) == 0 {
 		log.Println("ошибка: Не указаны флаги")
-		os.Exit(1)
 	}
 
 	log.Fatalln(spider.App(params))

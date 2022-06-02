@@ -18,13 +18,13 @@ func App(p Config) error {
 		XPath:          `//div[@data-block-id="1774812525"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a`,
 	}
 
-	cache := dataBase{} // Временное хранения новостного поста
+	var cacheNews = dataBase{} // Временное хранения новостного поста
 
 	for {
 		res := getData(spider)[0]
 
-		if res.Text != cache.Text {
-			cache = dataBase{Text: res.Text, URL: res.URL}
+		if res.Text != cacheNews.Text {
+			cacheNews = dataBase{Text: res.Text, URL: res.URL}
 
 			message := fmt.Sprintf("%s\n%s\n", res.Text, res.URL)
 			if err := send(p, message); err != nil {
