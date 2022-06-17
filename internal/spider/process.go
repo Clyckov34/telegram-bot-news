@@ -15,7 +15,7 @@ func App(p Config) error {
 	spider := Spider{
 		Visit:          "https://ria.ru/",
 		AllowedDomains: "ria.ru",
-		XPath:          `//div[@data-block-id="1774812525"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a`,
+		XPath:          `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a`, //Иногда меняет стили RIA.RU
 	}
 
 	var cacheNews = dataBase{} // Временное хранения новостного поста

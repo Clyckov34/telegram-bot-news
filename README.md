@@ -18,7 +18,8 @@ Telegram Bot - Новости из источника RIA.RU
 3. Откройте файл ` telegram-bot-news.service ` Укажите путь к приложению, и токен Telegram Bot
 4. Сохраните, и закройте файл
 5. Разместите файл ` telegram-bot-news.service ` в каталоге ` /etc/systemd/system/ `
-6. Запустите скрипт как службу:
+6. Укажите пара файлу ` sudo chmod +x /usr/local/bin/telegram-new/main `
+7. Запустите скрипт как службу:
 - ` sudo systemctl enable telegram-bot-news.service `
 
 - ` sudo systemctl start telegram-bot-news.service `

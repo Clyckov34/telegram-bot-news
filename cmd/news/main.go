@@ -22,5 +22,7 @@ func main() {
 		log.Println("ошибка: Не указаны флаги")
 	}
 
-	log.Fatalln(spider.App(params))
+	if err := spider.App(params); err != nil {
+		log.Fatalln(err)
+	}
 }
