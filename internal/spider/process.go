@@ -12,11 +12,10 @@ import (
 
 //App запуск приложения
 func App(p Config) error {
-	spider := Spider{
-		Visit:          "https://ria.ru/",
-		AllowedDomains: "ria.ru",
-		XPath:          `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a`, //Иногда меняет стили RIA.RU
-	}
+	spider := new(Spider)
+	spider.Visit = "https://ria.ru/"
+	spider.AllowedDomains = "ria.ru"
+	spider.XPath = `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a` //Иногда меняет стили RIA.RU
 
 	var cacheNews = dataBase{} // Временное хранения новостного поста
 
@@ -36,7 +35,7 @@ func App(p Config) error {
 }
 
 //getData запрос на получения данных. Паук
-func getData(s Spider) []dataBase {
+func getData(s *Spider) []dataBase {
 	var data = make([]dataBase, 0)
 
 	c := colly.NewCollector(colly.AllowedDomains(s.AllowedDomains))
