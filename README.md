@@ -66,7 +66,7 @@ Telegram Bot + Spider. Выгрузка новостей с интервалом
 ### **Примечание !!!**
 1. Если в течении минуты не появился новостной пост в Telegram группе, скорее всего изменился адрес блока XPath на сайте https://ria.ru/
 
-    > Решения: Измените на актуальный XPath в файле ` internal/spider/default.go ` в блоке const(xPath). И заново повторите пункт № 4 - 6
+    > Решения: Измените на актуальный XPath в файле ` internal/spider/default.go ` в блоке const(xPath). И заново повторите пункт: "Подготовка утилиты к работе" № 4 - 6
     
     > Образец кода XPath: `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a` 
 
