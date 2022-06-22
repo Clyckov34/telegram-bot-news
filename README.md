@@ -69,3 +69,7 @@ Telegram Bot + Spider. Выгрузка новостей с интервалом
     > Решения: Измените на актуальный XPath в файле ` internal/spider/default.go ` в блоке const(xPath). И заново повторите пункт № 4 - 6
     
     > Образец кода XPath: `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a` 
+
+
+2. Старайте не делать частых запросов на сайт https://ria.ru/, могут заблокировать на время Ваш IP-адрес за DOS-атаку... 
+    > По умолчанию указан интервал в раз 10 мин.
