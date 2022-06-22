@@ -12,7 +12,7 @@ var params = spider.Config{}
 func init() {
 	flag.StringVar(&params.Token, "tk", "", "Telegram Bot API")
 	flag.StringVar(&params.Channel, "id", "", "@Name или ID телеграмм группы")
-	flag.Int64Var(&params.Timeout, "t", 600, "Timeout Время интервал между запросами на сайт")
+	flag.Int64Var(&params.Timeout, "t", 10, "Timeout (В минутах) Время интервал между запросами на сайт")
 }
 
 func main() {

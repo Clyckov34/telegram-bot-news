@@ -30,7 +30,7 @@ func App(p Config) error {
 				return err
 			}
 		}
-		time.Sleep(time.Duration(p.Timeout) * time.Second)
+		time.Sleep(time.Duration(p.Timeout) * time.Minute)
 	}
 }
 
