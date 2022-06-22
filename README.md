@@ -30,15 +30,15 @@ Telegram Bot + Spider. Выгрузка новостей с интервалом
 ### Запуск через DockerFile:
 - Build - `docker build -t news .`
 
-- Run -   `docker run news ./app --tk=TOKEN_TELEGRAM_BOT --id=ID_TELEGRAM_GROUP`
+- Run -   `docker run news ./app --tk=TELEGRAM_TOKEN_BOT --id=TELEGRAM_GROUP_ID`
 
 ### Linux: Автозапуск Telegram Bot systemctl
 1. Скомпилируйте приложения ` go build cmd/news/main.go `
 2. Разместите скомпилированный файл ` main ` в каталог ` /usr/local/bin/MY_PROJECT`
-3. Откройте файл ` telegram-bot-news.service ` Укажите путь к приложению, и токен Telegram Bot
+3. Откройте файл ` telegram-bot-news.service ` Укажите путь к приложению, токен TOKEN_TELEGRAM_BOT, и TELEGRAM_GROUP_ID 
 4. Сохраните, и закройте файл
 5. Разместите файл ` telegram-bot-news.service ` в каталоге ` /etc/systemd/system/ `
-6. Укажите права доступа к файлу ` sudo chmod +x /usr/local/bin/telegram-new/main `
+6. Укажите права доступа к файлу ` sudo chmod +x /usr/local/bin/MY_PROJECT/main `
 7. Запустите скрипт как службу:
 - ` sudo systemctl enable telegram-bot-news.service `
 

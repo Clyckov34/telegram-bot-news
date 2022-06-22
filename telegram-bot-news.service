@@ -5,7 +5,7 @@ After=network.target
 [Service]
 RemainAfterExit=true
 User=root
-ExecStart=/usr/local/bin/MY_PROJECT/main --tk=TOKEN_TELEGRAM_BOT --id=ID_TELEGRAM_GROUP
+ExecStart=/usr/local/bin/MY_PROJECT/main --tk=TELEGRAM_TOKEN_BOT --id=TELEGRAM_GROUP_ID
 WorkingDirectory=/usr/local/bin/MY_PROJECT
 Type=simple
 Restart=always
