@@ -19,7 +19,7 @@ func main() {
 	flag.Parse()
 
 	if len(params.Token) == 0 && len(params.Channel) == 0 {
-		log.Println("ошибка: Не указаны флаги")
+		log.Fatalln("ошибка: Не указаны флаги")
 	}
 
 	if err := spider.App(params); err != nil {

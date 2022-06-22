@@ -1,13 +1,33 @@
 # Telegram Bot "NEWS RIA.RU"
-Telegram Bot - Новости из источника RIA.RU
+Telegram Bot + Spider. Выгрузка новостей с интервалом из источника RIA.RU.
 
-### Запуск утилиты:
-- `go run cmd/news/main.go --tk=TOKEN_TELEGRAM_BOT --id=ID_TELEGRAM_GROUP` 
+### **Описание флагов:**
+- `--help` Справочник.
+- `--id` @Name_Group или ID телеграмм группы.
+- `--tk` Token. Telegram BOT API.
+- `--t` Интервал Времяни между запросами на сайт. Default: 10 мин.
 
-### Запуск утилиты c подробными флагами:
-- `go run cmd/telegramBot/main.go --help`
+### **Подготовка утилиты к работе:**
+1. [Скачать и установить GO на ПК](https://go.dev/dl/)
+2. [Скачать и установить Git на ПК](https://git-scm.com/downloads) 
+3. Скачать код c репозитории в свою отдельную папку (С помощью команды в терминале): 
 
-### DockerFile:
+    3.1. Windows > `git clone https://github.com/Clyckov34/telegram-bot-news.git`
+
+    3.2. Linux $ `git clone https://github.com/Clyckov34/telegram-bot-news.git`
+4. Build App (Собрать пиложения в бинарный файл)
+    
+    4.1. Windows > `GOOS=windows GOARCH=amd64 go build -o="main.exe" cmd/news/main.go`
+
+    4.2. Linux $ `GOOS=linux GOARCH=amd64 go build cmd/news/main.go`
+5. Run App (Запуск бинарного файла **НЕ ЗАБУДЬТЕ УКАЗАТЬ ФЛАГИ**  Telegram Token, и ID группы)
+
+    5.1. Windows > `.\main.exe --tk=TELEGRAM_TOKEN_BOT --id=TELEGRAM_GROUP_ID`
+    
+    5.2. Linux $ `УКАЗАТЬ_ПОЛНЫЙ_ПУТЬ_К_ФАЙЛУ/main  --tk=TELEGRAM_TOKEN_BOT --id=TELEGRAM_GROUP_ID`
+6. Готово.
+
+### Запуск через DockerFile:
 - Build - `docker build -t news .`
 
 - Run -   `docker run news ./app --tk=TOKEN_TELEGRAM_BOT --id=ID_TELEGRAM_GROUP`
@@ -18,8 +38,15 @@ Telegram Bot - Новости из источника RIA.RU
 3. Откройте файл ` telegram-bot-news.service ` Укажите путь к приложению, и токен Telegram Bot
 4. Сохраните, и закройте файл
 5. Разместите файл ` telegram-bot-news.service ` в каталоге ` /etc/systemd/system/ `
-6. Укажите пара файлу ` sudo chmod +x /usr/local/bin/telegram-new/main `
+6. Укажите права доступа к файлу ` sudo chmod +x /usr/local/bin/telegram-new/main `
 7. Запустите скрипт как службу:
 - ` sudo systemctl enable telegram-bot-news.service `
 
 - ` sudo systemctl start telegram-bot-news.service `
+
+### **Примечание !!!**
+1. Если в течении минуты не появился новостной пост в Telegram группе, скорее всего изменился адрес блока XPath на сайте https://ria.ru/
+
+    > Решения: Измените на актуальный XPath в файле ` internal/spider/default.go ` в блоке const(xPath). И заново повторите пункт № 4 - 6
+    
+    > Образец кода XPath: `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a` 

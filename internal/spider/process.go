@@ -13,9 +13,9 @@ import (
 //App запуск приложения
 func App(p Config) error {
 	spider := new(Spider)
-	spider.Visit = "https://ria.ru/"
-	spider.AllowedDomains = "ria.ru"
-	spider.XPath = `//div[@data-block-id="1795085849"]//div[@class="cell-list__list"]/div[@class="cell-list__item m-no-image"]/a` //Иногда меняет стили RIA.RU
+	spider.Visit = visit
+	spider.AllowedDomains = allowedDomains
+	spider.XPath = xPath
 
 	var cacheNews = dataBase{} // Временное хранения новостного поста
 
